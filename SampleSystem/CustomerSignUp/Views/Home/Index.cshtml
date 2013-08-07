@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<script src="http://localhost:2010/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+<h2>Compare energy rates for your home:</h2>
+<div id="initializeEnrollment">
+    @Html.Partial("OfferCatalog.New")
+    <a href="#" class="lnkGetUtilities">Get Utilites</a>
+</div>
+<div id="divDispayUdcs">
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        var frm = $("#frm");
+
+        $('.lnkGetUtilities').click(function () {
+            alert('dumb');
+            $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success: function (returnValue) {
+                    debugger;
+                    alert('ok');
+                }
+            });
+
+            return false;
+        });
+
+
+    });
+</script>
